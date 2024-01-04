@@ -4,69 +4,87 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+import PokemonCard from '../components/PokemonCard.astro'
+
+
+const response = await fetch ("http://pokeapi.co/api/v2/pokemon?limit=28")
+ .then((res) => res.json());
+
+ const pokemons = response.results.map((data, index) =>{
+  return {
+    name: data.name,
+    id: index + 1,
+    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index +1}.png`, 
+  }
+ });
+ console.log (pokemons);
 ---
 
 <DefaultLayout title="Home">
   <Hero />
+      <main class="grid md:grid-cols-4 grid-cols-2 gap-4 p-2">
+        {pokemons.map((pokemon) =>
+          <PokemonCard {pokemon} />
+        )}
+      </main>
+ 
   <section class="my-64">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Features</h2>
+      <h2 class="mb-16 text-6xl">Figuras Profesionales</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:tailwind" title="Tailwind CSS">
-          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
+        <Feature icon="mdi:monitor-multiple" title="Informatica">
+          Optimizar el tratamiento de la información mediante el procesamiento automático, utilizando lenguajes de programación.
         </Feature>
-        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
-          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
+        <Feature icon="mdi:calculator" title="Ciencias Generales">
+          La materia de Ciencias Generales ofrece al alumnado una formación básica en las cuatro disciplinas científicas fundamentales para que adquieran la base suficiente
         </Feature>
-        <Feature icon="mdi:looks" title="Prettier">
-          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
+        <Feature icon="mdi:fence-electric" title="Electricidad">
+          La electricidad​ es el conjunto de fenómenos físicos relacionados con la presencia y flujo de cargas eléctricas.
         </Feature>
-        <Feature icon="mdi:eslint" title="ESLint">
-          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
+        <Feature icon="mdi:eslint" title="Mecanica">
+          La mecánica o arte de construir una máquina es la rama de la física que estudia y analiza el movimiento y reposo de los cuerpos,
         </Feature>
-        <Feature icon="mdi:book-open-page-variant" title="Blog">
-          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
+        <Feature icon="mdi:book-open-page-variant" title="Comercializacion y Ventas">
+          Se llama comercialización al proceso por el cual una empresa u organización genera estrategias de promoción y venta de productos o servicios.
         </Feature>
-        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
-          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
-        </Feature>
-        <Feature icon="mdi:theme-light-dark" title="Dark mode">
-          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
-        </Feature>
-        <Feature icon="mdi:cog" title="Design System">
-          The theme offers some very handy utilities to help you build your website faster.
-        </Feature>
-        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
-          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
+        <Feature icon="mdi:cellphone-cog" title="Electronica de Consumo">
+          Instalar y mantener equipos y sistemas electrónicos de audio y video, microinformáticos, 
+          microprocesados y telefonía
         </Feature>
       </div>
     </div>
   </section>
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
+  <ContentMedia imgSrc="/DSCF0123.JPG">
+    <h2>INFORMACIÓN</h2>
+    <p>
+      La institución inicia sus  labores en  la Escuela  Héroes de Paquisha el  año  1983, con 89  estudiantes,  y 
+      como Colegio Particular sin  Nombre, mediante Acuerdo  Ministerial 1734 del 25 de Octubre  de 1983. 
+      El  año  siguiente  se  consigue el  Acuerdo  Ministerial   Nro. 3879 del 01 de  Junio  de 1984  emanado  
+      por el Ministerio de Educación y Cultura  con  el nombre de Colegio Nacional  Santa  Martha.
     </p>
   </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
+  <ContentMedia imgSrc="/DSCF0003.JPG" reverseImg={true}>
+    <h2>¿QUIENES SOMOS?</h2>
+    <p>
+      MISIÓN:
+      Formar bachilleres emprendedores, indagadores, íntegros y solidarios, comprometidos 
+      con el desarrollo social, cumpliendo con estándares de calidad  nacionales e internacionales 
+      para el buen vivir en un mundo más equitativo.</p>
+      <p> VISIÓN:
+      Ser una institución educativa abierta a los avances científicos y tecnológicos que 
+      satisfaga las necesidades que exige el mundo globalizado, ofertando bachilleres competitivos, 
+      emprendedores, proactivos, equilibrados, reflexivos, de mentalidad abierta,   
+      cumpliendo con los estándares de calidad  internacionales.
     </p>
   </ContentMedia>
   <section class="mt-64 mb-32">
     <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
+      <h2 class="mb-16 text-6xl">Datos</h2>
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="130" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
+        <Counter count="2947" title="Estudiantes"  />
+        <Counter count="6" title="Carreras-FIPS"  />
+        <Counter count="2" title="Bloques"  />
+        <Counter count="40" title="Años"  />
       </div>
     </div>
   </section>

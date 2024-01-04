@@ -1,27 +1,58 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
-title: MDX Page
+title: Instalando Astro
 ---
 
 import { Icon } from 'astro-icon'
 import { Notification } from 'accessible-astro-components'
 
-# MDX Page
+# Instalando Astro
 
 <Notification type="info">
   <Icon pack="ion" name="information-circle-outline" />
   <p>
-    <strong>Info:</strong> This page utilizes Astro's MDX feature which let's you use components in a markdown file and
-    supports out-of-the-box syntax highlighting with Shiki.
+    <strong>Info:</strong> El desarrollo web ha avanzado mucho desde los primeros días de los sitios web personales estáticos de una sola página. Ahora tenemos una gran cantidad de lenguajes, frameworks y sistemas de gestión de contenidos entre los que elegir, creados para satisfacer todos los nichos imaginables.
   </p>
 </Notification>
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam repellat deleniti obcaecati facilis non, praesentium aperiam laudantium excepturi assumenda doloremque animi quis aliquam eligendi quia nemo asperiores et eaque, sunt voluptatibus, saepe exercitationem id. Quis sequi maxime fugiat nam reprehenderit nesciunt quaerat obcaecati, ipsa dignissimos voluptatum voluptatem, optio quidem quos repudiandae dolorem voluptatibus fuga officia odio nemo recusandae voluptas.
+**Requesitos Previos**
+
+
+
+Astro se basa en Node.js, por lo que necesitarás tenerlo instalado en tu sistema.
+
+**Instalación de Astro:**
+
+Abre tu terminal o línea de comandos.
+Ejecuta el siguiente comando para instalar Astro de forma global:
 
 ```js
-console.log('Hello Accessible World!')
+('npm install -g astro')
 ```
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam repellat deleniti obcaecati facilis non, praesentium aperiam laudantium excepturi assumenda doloremque animi quis aliquam eligendi quia nemo asperiores et eaque, sunt voluptatibus, saepe exercitationem id. Quis sequi maxime fugiat nam reprehenderit nesciunt quaerat obcaecati, ipsa dignissimos voluptatum voluptatem, optio quidem quos repudiandae dolorem voluptatibus fuga officia odio nemo recusandae voluptas.
+**Verificación de la instalación:**
+
+Después de la instalación, verifica que Astro se haya instalado correctamente ejecutando:
+
+```js
+('astro -v')
+```
+
+**Configuración inicial:**
+
+Puedes inicializar Astro en tu proyecto ejecutando:
+
+```js
+('astro init')
+```
+
+**Uso básico:**
+
+Explora los comandos básicos de Astro, como astro dev para iniciar un servidor de desarrollo y astro build para compilar tu proyecto.
+
+**Personalización del proyecto:**
+
+Edita los archivos en tu proyecto según tus necesidades. Puedes modificar el archivo astro.config.mjs para ajustar la configuración.
+
 
 [Get this theme on GitHub](https://github.com/markteekman/accessible-astro-starter)
